@@ -4,12 +4,15 @@ using Zenject;
 using System;
 
 public class TestLoggerScript : ITickable {
-    
-	public TestLoggerScript () {
-        Debug.Log("Hey, it worked!");
+
+    IOtherDependency otherDependency;
+
+	public TestLoggerScript (IOtherDependency otherDependency) {
+        this.otherDependency = otherDependency;
+        this.otherDependency.PrintLogStatement();
     }
 
     public void Tick () {
-        Debug.Log("Ticking");
-    }
+        Debug.Log("Ticking...");
+   }
 }
